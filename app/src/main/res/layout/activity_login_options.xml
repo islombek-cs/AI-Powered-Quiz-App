@@ -21,11 +21,11 @@
         android:layout_height="wrap_content"
         android:text="Skip Now"
         android:layout_alignParentEnd="true"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:textColor="@color/white"
-        android:textSize="10sp"
+        android:textSize="15sp"
         app:backgroundTint="@android:color/transparent"
-        app:strokeWidth="1dp"
+        app:strokeWidth="2dp"
         app:strokeColor="@color/white"/>
 
     <!--LinearLayout: To show login options e.g. phone, email, google-->
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="20dp">
 
         <!--MaterialButton: Login with phone-->
         <com.google.android.material.button.MaterialButton
@@ -88,7 +88,7 @@
                 android:minHeight="@dimen/m_button_height"
                 app:icon="@drawable/email_black"
                 android:layout_weight="1"
-                android:layout_marginEnd="5dp" />
+                android:layout_marginEnd="15dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/LoginGoogleBtn"
@@ -97,11 +97,10 @@
                 android:text="Google"
                 app:icon="@drawable/google_white"
                 android:minHeight="@dimen/m_button_height"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="15dp"
                 android:layout_weight="1" />
 
         </LinearLayout>
-
 
     </LinearLayout>
 

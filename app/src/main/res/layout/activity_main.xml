@@ -13,16 +13,21 @@
         android:id="@+id/toolbarRL"
         android:background="@drawable/toolbar_bg_01"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/m_toolbar_height">
+        android:layout_height="@dimen/m_toolbar_height"
+        android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/toolbarTitleTv"
             style="@style/TextAppearance.Material3.TitleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Home"
+            android:text="Main Page"
             android:textColor="@color/white"
-            android:layout_centerInParent="true" />
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"/>
     </RelativeLayout>
 
     <!-- FrameLayout: To show fragments -->
@@ -41,6 +46,5 @@
         app:menu="@menu/menu_bottom"
         app:labelVisibilityMode="labeled"
         android:layout_alignParentBottom="true"/>
-<!--        app:menu="@menu/bottom_nav_menu" />-->
 
 </RelativeLayout>

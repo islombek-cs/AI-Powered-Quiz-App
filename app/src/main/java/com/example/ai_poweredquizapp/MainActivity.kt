@@ -25,18 +25,9 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        /*firebaseAuth = FirebaseAuth.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
         if (firebaseAuth.currentUser == null) {
             startLoginOptionsActivity()
-        }*/
-
-        firebaseAuth = FirebaseAuth.getInstance()
-        val prefs = getSharedPreferences("appPrefs", MODE_PRIVATE)
-        val isGuest = prefs.getBoolean("isGuest", false)
-
-        if (firebaseAuth.currentUser == null && !isGuest) {
-            startLoginOptionsActivity()
-            finish()
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -75,7 +66,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showHomeFragment() {
-        binding.toolbarTitleTv.text = "Home"
+        binding.toolbarTitleTv.text = "Main Page"
 
         val homeFragment = HomeFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
@@ -84,7 +75,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showAssessmentFragment() {
-        binding.toolbarTitleTv.text = "Assessment"
+        binding.toolbarTitleTv.text = "Your Scores"
 
         val assessmentFragment = AssessmentFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
@@ -93,7 +84,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showTaskFragment() {
-        binding.toolbarTitleTv.text = "Task"
+        binding.toolbarTitleTv.text = "Todos"
 
         val taskFragment = TaskFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
@@ -102,7 +93,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showProfileFragment() {
-        binding.toolbarTitleTv.text = "Profile"
+        binding.toolbarTitleTv.text = "Account Settings"
 
         val profileFragment = ProfileFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
