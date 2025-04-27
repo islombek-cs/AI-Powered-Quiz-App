@@ -68,54 +68,9 @@ class LoginEmailActivity : AppCompatActivity() {
             validateData()
         }
 
-
-        // Setup "Don't have an account? Sign Up" styling
-        val goToRegisterTv = findViewById<TextView>(R.id.goToRegisterTv)
-
-        val text = "Don't have an account? Sign Up"
-        val spannableString = SpannableString(text)
-
-        val startIndex = text.indexOf("Sign Up")
-        val endIndex = startIndex + "Sign Up".length
-
-        val clickableSpan = object : ClickableSpan() {
-            override fun onClick(widget: View) {
-                val intent = Intent(this@LoginEmailActivity, RegisterActivity::class.java)
-                startActivity(intent)
-            }
+        binding.goToRegisterTv.setOnClickListener {
+            startActivity(Intent(this, RegisterEmailActivity::class.java))
         }
-
-        spannableString.setSpan(
-            clickableSpan,
-            startIndex,
-            endIndex,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-
-        spannableString.setSpan(
-            ForegroundColorSpan(ContextCompat.getColor(this, R.color.colorPrimary)),
-            startIndex,
-            endIndex,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-
-        spannableString.setSpan(
-            UnderlineSpan(),
-            startIndex,
-            endIndex,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-
-        spannableString.setSpan(
-            StyleSpan(Typeface.BOLD),
-            startIndex,
-            endIndex,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-
-        goToRegisterTv.text = spannableString
-
-        goToRegisterTv.movementMethod = LinkMovementMethod.getInstance()
 
     }
 

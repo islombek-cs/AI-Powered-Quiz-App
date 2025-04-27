@@ -67,7 +67,8 @@ class LoginOptionsActivity : AppCompatActivity() {
 
         // handle skipBtn click, go-back
         binding.skipBtn.setOnClickListener {
-            finish()
+            val intent = Intent(this, LoginEmailActivity::class.java)
+            startActivity(intent)
         }
 
         // handle loginGoogleBtn click, start LoginGoogleActivity
@@ -76,7 +77,7 @@ class LoginOptionsActivity : AppCompatActivity() {
         }
 
         binding.LoginEmailBtn.setOnClickListener {
-            val intent = Intent(this, LoginEmailActivity::class.java)
+            val intent = Intent(this, RegisterEmailActivity::class.java)
             startActivity(intent)
         }
     }

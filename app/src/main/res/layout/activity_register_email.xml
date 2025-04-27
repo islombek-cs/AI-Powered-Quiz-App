@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.LoginEmailActivity">
+    tools:context=".activities.RegisterEmailActivity">
 
     <!-- Toolbar Section -->
     <RelativeLayout
@@ -38,18 +38,17 @@
 
         <!-- Login Text -->
         <TextView
-            android:id="@+id/LoginLabelTv"
+            android:id="@+id/RegisterLabelTv"
             style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcome_back_please_sign_in"
+            android:text="@string/get_started_create_your_account"
             android:textSize="20sp"
             android:layout_below="@id/profileIv"
             android:layout_centerHorizontal="true"
             android:textColor="?attr/colorOnPrimary" />
     </RelativeLayout>
 
-    <!-- Content Section -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -88,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/emailTil"
             android:layout_marginTop="4dp"
-            android:hint="@string/enter_secure_password"
+            android:hint="@string/password"
             app:passwordToggleEnabled="true"
             app:boxCornerRadiusTopStart="8dp"
             app:boxCornerRadiusTopEnd="8dp"
@@ -107,26 +106,58 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cPasswordTil"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/passwordTil"
+            android:layout_marginTop="4dp"
+            android:hint="@string/confirm_password"
+            app:passwordToggleEnabled="true"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:startIconDrawable="@drawable/lock_white">
+
+            <!-- Correct: Use TextInputEditText, not plain EditText -->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cPasswordEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="50dp"
+                android:inputType="textPassword"
+                tools:ignore="RtlSymmetry" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
         <TextView
-            android:id="@+id/goToRegisterTv"
+            android:id="@+id/haveAccountTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_above="@id/LoginBtn"
+            android:layout_above="@id/RegisterBtn"
             android:layout_marginBottom="20dp"
-            android:text="@string/don_t_have_an_account_sign_up"
+            android:text="@string/already_have_an_account_login"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
         <!-- MaterialButton: Click to login user -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/LoginBtn"
+            android:id="@+id/RegisterBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/m_button_height"
-            android:text="@string/let_s_go"
+            android:text="@string/register_now"
             android:layout_alignParentBottom="true" />
 
     </RelativeLayout>
 
 </RelativeLayout>
+
+
+
+
+
+
