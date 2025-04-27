@@ -1,4 +1,4 @@
-package com.example.ai_poweredquizapp
+package com.example.ai_poweredquizapp.activities
 
 import android.app.Activity
 import android.app.ProgressDialog
@@ -10,6 +10,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.ai_poweredquizapp.MyUtils
+import com.example.ai_poweredquizapp.R
 import com.example.ai_poweredquizapp.databinding.ActivityLoginOptionsBinding
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -71,6 +73,11 @@ class LoginOptionsActivity : AppCompatActivity() {
         // handle loginGoogleBtn click, start LoginGoogleActivity
         binding.LoginGoogleBtn.setOnClickListener {
             beginLoginBtn()
+        }
+
+        binding.LoginEmailBtn.setOnClickListener {
+            val intent = Intent(this, LoginEmailActivity::class.java)
+            startActivity(intent)
         }
     }
 

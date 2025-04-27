@@ -1,4 +1,4 @@
-package com.example.ai_poweredquizapp
+package com.example.ai_poweredquizapp.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.ai_poweredquizapp.R
 import com.example.ai_poweredquizapp.databinding.ActivityMainBinding
 import com.example.ai_poweredquizapp.fragments.AssessmentFragment
 import com.example.ai_poweredquizapp.fragments.HomeFragment
