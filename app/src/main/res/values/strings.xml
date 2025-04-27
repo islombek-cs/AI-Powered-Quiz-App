@@ -3,4 +3,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="default_web_client_id">195695649599-aof2shk4kumf9rm9gls398ajp8n6jt2f.apps.googleusercontent.com</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? <b><u> Sign Up </u></b></string>
+    <string name="let_s_go">Let\'s Go</string>
+    <string name="enter_secure_password">Enter secure password</string>
+    <string name="e_g_user_example_com">e.g. user@example.com</string>
+    <string name="welcome_back_please_sign_in">Welcome Back! Please Sign In</string>
+    <string name="get_started_create_your_account">Get Started! Create Your Account</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="already_have_an_account_login">Already have an account? <b><u>Login</u></b></string>
+    <string name="register_now">Register Now</string>
 </resources>
