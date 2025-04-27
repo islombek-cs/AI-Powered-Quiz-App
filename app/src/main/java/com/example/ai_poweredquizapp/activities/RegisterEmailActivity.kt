@@ -50,7 +50,8 @@ class RegisterEmailActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.toolbarBackBtn.setOnClickListener {
-            finish()
+            val intent = Intent(this, LoginOptionsActivity::class.java)
+            startActivity(intent)
         }
 
         binding.RegisterBtn.setOnClickListener {
