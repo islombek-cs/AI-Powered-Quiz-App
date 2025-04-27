@@ -10,13 +10,13 @@
     <!-- Menu item to show ChatsListFragment to show list of assessments -->
     <item
         android:id="@+id/item_assessment"
-        android:title="Assessment"
+        android:title="Grades"
         android:icon="@drawable/assessment_black" />
 
     <!-- Menu item to show Tasks to show added todos -->
     <item
         android:id="@+id/item_task"
-        android:title="Task"
+        android:title="Tasks"
         android:icon="@drawable/task_black" />
 
     <!-- Menu item to show ProfileFragment to show user profile -->

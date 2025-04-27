@@ -1,5 +1,6 @@
 package com.example.ai_poweredquizapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -10,16 +11,25 @@ import com.example.ai_poweredquizapp.fragments.AssessmentFragment
 import com.example.ai_poweredquizapp.fragments.HomeFragment
 import com.example.ai_poweredquizapp.fragments.ProfileFragment
 import com.example.ai_poweredquizapp.fragments.TaskFragment
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
     // View Binding
     private lateinit var binding: ActivityMainBinding
 
+    private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
+        firebaseAuth = FirebaseAuth.getInstance()
+        if (firebaseAuth.currentUser == null) {
+            startLoginOptionsActivity()
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -56,7 +66,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showHomeFragment() {
-        binding.toolbarTitleTv.text = "Home"
+        binding.toolbarTitleTv.text = "Main Page"
 
         val homeFragment = HomeFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
@@ -65,7 +75,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showAssessmentFragment() {
-        binding.toolbarTitleTv.text = "Assessment"
+        binding.toolbarTitleTv.text = "Your Scores"
 
         val assessmentFragment = AssessmentFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
@@ -74,7 +84,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showTaskFragment() {
-        binding.toolbarTitleTv.text = "Task"
+        binding.toolbarTitleTv.text = "Todos"
 
         val taskFragment = TaskFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
@@ -83,12 +93,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showProfileFragment() {
-        binding.toolbarTitleTv.text = "Profile"
+        binding.toolbarTitleTv.text = "Account Settings"
 
         val profileFragment = ProfileFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentsFL.id, profileFragment, "ProfileFragment")
         fragmentTransaction.commit()
+    }
+
+    private fun startLoginOptionsActivity() {
+        val intent = Intent(this, LoginOptionsActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
 }

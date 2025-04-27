@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginOptionsActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back02"
+        android:foreground="@color/black_transparent" />
+
+    <!--MaterialButton: To skip and continue without login-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/skipBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Skip Now"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:backgroundTint="@android:color/transparent"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/white"/>
+
+    <!--LinearLayout: To show login options e.g. phone, email, google-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!--MaterialButton: Login with phone-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/LoginPhoneBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Continue with Phone Number"
+            android:minHeight="@dimen/m_button_height"
+            app:icon="@drawable/phone_black" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/continueWithLabelTv" />
+
+            <TextView
+                android:id="@+id/continueWithLabelTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="or continue with"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/continueWithLabelTv"
+                android:layout_centerVertical="true" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/moreOptionsLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/LoginEmailBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:minHeight="@dimen/m_button_height"
+                app:icon="@drawable/email_black"
+                android:layout_weight="1"
+                android:layout_marginEnd="15dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/LoginGoogleBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Google"
+                app:icon="@drawable/google_white"
+                android:minHeight="@dimen/m_button_height"
+                android:layout_marginStart="15dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
