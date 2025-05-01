@@ -80,6 +80,10 @@ class LoginOptionsActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterEmailActivity::class.java)
             startActivity(intent)
         }
+
+        binding.LoginPhoneBtn.setOnClickListener {
+            startActivity(Intent(this, LoginPhoneActivity::class.java))
+        }
     }
 
     private fun beginLoginBtn(){

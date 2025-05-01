@@ -13,4 +13,11 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="already_have_an_account_login">Already have an account? <b><u>Login</u></b></string>
     <string name="register_now">Register Now</string>
+    <string name="login_to_your_account">Login to Your Account</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="didn_t_get_the_code_resend">Didn\'t get the code? <u><b>Resend</b></u></string>
+    <string name="send_verification_code">Send Verification Code</string>
+    <string name="_6_digit_code">6-Digit Code</string>
+    <string name="confirm_code">Confirm Code</string>
+    <string name="continue_with_phone_number">Continue with Phone Number</string>
 </resources>

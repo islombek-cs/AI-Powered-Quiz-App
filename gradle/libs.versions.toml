@@ -1,7 +1,8 @@
 [versions]
 agp = "8.8.2"
+ccp = "2.7.0"
 credentials = "1.5.0"
-firebaseBom = "33.12.0"
+firebaseBom = "33.13.0"
 googleid = "1.1.1"
 kotlin = "2.1.0"
 coreKtx = "1.16.0"
@@ -17,11 +18,13 @@ firebaseAnalytics = "22.4.0"
 firebaseAuth = "23.2.0"
 firebaseDatabase = "21.0.0"
 firebaseStorage = "21.0.1"
+playServicesAuth = "21.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-credentials = { module = "androidx.credentials:credentials", version.ref = "credentials" }
 androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentials" }
+ccp = { module = "com.hbb20:ccp", version.ref = "ccp" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 googleid = { module = "com.google.android.libraries.identity.googleid:googleid", version.ref = "googleid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -35,6 +38,7 @@ firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

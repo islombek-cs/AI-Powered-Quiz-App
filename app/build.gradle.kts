@@ -50,15 +50,13 @@ dependencies {
 
     //firebase
     implementation(platform(libs.firebase.bom))
-    implementation("com.google.android.gms:play-services-auth:20.7.0")
-//    implementation("com.google.firebase:firebase-analytics")
-//    implementation("com.google.firebase:firebase-auth")
-//    implementation("com.google.firebase:firebase-database")
-//    implementation("com.google.firebase:firebase-storage")
+    implementation(libs.play.services.auth)
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage)
+
+    implementation(libs.ccp)
 
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)

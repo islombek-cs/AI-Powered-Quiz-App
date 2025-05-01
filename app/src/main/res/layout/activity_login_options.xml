@@ -41,7 +41,7 @@
             android:id="@+id/LoginPhoneBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Continue with Phone Number"
+            android:text="@string/continue_with_phone_number"
             android:minHeight="@dimen/m_button_height"
             app:icon="@drawable/phone_black" />
 
