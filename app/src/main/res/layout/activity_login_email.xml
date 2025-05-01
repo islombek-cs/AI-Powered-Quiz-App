@@ -108,6 +108,17 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/forgotPasswordTv"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_password_recover"
+            android:layout_below="@id/passwordTil"
+            android:layout_alignParentEnd="true"
+            android:paddingVertical="10dp"/>
+
+
+        <TextView
             android:id="@+id/goToRegisterTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

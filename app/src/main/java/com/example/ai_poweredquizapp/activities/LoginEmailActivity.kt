@@ -73,6 +73,9 @@ class LoginEmailActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterEmailActivity::class.java))
         }
 
+        binding.forgotPasswordTv.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+        }
     }
 
 
