@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.example.ai_poweredquizapp.MyUtils
 import com.example.ai_poweredquizapp.R
 import com.example.ai_poweredquizapp.activities.MainActivity
+import com.example.ai_poweredquizapp.activities.ProfileEditActivity
 import com.example.ai_poweredquizapp.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -58,6 +59,11 @@ class ProfileFragment : Fragment() {
             firebaseAuth.signOut()
             startActivity(Intent(mContext, MainActivity::class.java))
             activity?.finishAffinity()
+        }
+
+        binding.editProfileCv.setOnClickListener {
+            val intent = Intent(mContext, ProfileEditActivity::class.java)
+            startActivity(intent)
         }
     }
 

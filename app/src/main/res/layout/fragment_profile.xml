@@ -15,7 +15,7 @@
         <RelativeLayout
             android:id="@+id/toolbarRL"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="130dp"
             android:background="@drawable/toolbar_bg_02">
 
             <!-- Profile Image -->
@@ -37,9 +37,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@tools:sample/full_names"
-                android:textSize="23sp"
+                android:textSize="20sp"
                 android:layout_below="@id/profileIv"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="-7dp"
                 android:textColor="?attr/colorOnPrimary" />
 
         </RelativeLayout>
@@ -47,6 +48,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:padding="10dp">
 
             <!-- TextView: User Email Label -->
