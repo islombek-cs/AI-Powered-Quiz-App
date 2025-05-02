@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#FFC107</color>
+    <color name="colorPreference">#C71A7E</color>
     <color name="colorPrimaryDark">#FFC107</color>
 
     <color name="black">#FF000000</color>

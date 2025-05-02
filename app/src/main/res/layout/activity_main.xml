@@ -14,14 +14,13 @@
         android:background="@drawable/toolbar_bg_01"
         android:layout_width="match_parent"
         android:layout_height="@dimen/m_toolbar_height"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="2dp">
 
         <TextView
             android:id="@+id/toolbarTitleTv"
             style="@style/TextAppearance.Material3.TitleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Main Page"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="25sp"

@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.ai_poweredquizapp.MyUtils
 import com.example.ai_poweredquizapp.R
 import com.example.ai_poweredquizapp.databinding.ActivityMainBinding
 import com.example.ai_poweredquizapp.fragments.AssessmentFragment
@@ -41,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        By default (when app opens) show HomeFragment
         showHomeFragment()
 
         // Handle BottomNavigationView item clicks
@@ -51,18 +51,40 @@ class MainActivity : AppCompatActivity() {
             when (itemId) {
                 R.id.item_home -> {
                     showHomeFragment()
+                    return@setOnItemSelectedListener true
                 }
                 R.id.item_assessment -> {
-                    showAssessmentFragment()
+
+                    if (firebaseAuth.currentUser == null) {
+                        MyUtils.toast(this, "Login required")
+                        return@setOnItemSelectedListener false
+                    } else {
+                        showAssessmentFragment()
+                        return@setOnItemSelectedListener true
+                    }
                 }
                 R.id.item_task -> {
-                    showTaskFragment()
+
+                    if (firebaseAuth.currentUser == null) {
+                        MyUtils.toast(this, "Login required")
+                        return@setOnItemSelectedListener false
+                    } else {
+                        showTaskFragment()
+                        return@setOnItemSelectedListener true
+                    }
                 }
                 R.id.item_profile -> {
-                    showProfileFragment()
+
+                    if (firebaseAuth.currentUser == null) {
+                        MyUtils.toast(this, "Login required")
+                        return@setOnItemSelectedListener false
+                    } else {
+                        showProfileFragment()
+                        return@setOnItemSelectedListener true
+                    }
                 }
+                else -> return@setOnItemSelectedListener false
             }
-            true
         }
     }
 

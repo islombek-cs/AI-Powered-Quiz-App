@@ -24,4 +24,5 @@
     <string name="reset_password">Reset Password</string>
     <string name="write_your_email">Write your email</string>
     <string name="request_password_reset">Request Password Reset</string>
+    <string name="preferences">Preferences</string>
 </resources>

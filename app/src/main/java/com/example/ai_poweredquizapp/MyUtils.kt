@@ -1,6 +1,8 @@
 package com.example.ai_poweredquizapp
 
 import android.content.Context
+import java.util.Calendar
+import android.text.format.DateFormat
 import android.widget.Toast
 
 object MyUtils {
@@ -15,5 +17,11 @@ object MyUtils {
 
     fun timestamp(): Long{
         return System.currentTimeMillis()
+    }
+
+    fun formatTimestampDate(timestamp: Long): String {
+        val calendar = Calendar.getInstance()
+        calendar.timeInMillis = timestamp
+        return DateFormat.format("dd/MM/yyyy", calendar).toString()
     }
 }
