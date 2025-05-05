@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.ai_poweredquizapp.MyUtils
 import com.example.ai_poweredquizapp.R
+import com.example.ai_poweredquizapp.activities.ChangePasswordActivity
 import com.example.ai_poweredquizapp.activities.MainActivity
 import com.example.ai_poweredquizapp.activities.ProfileEditActivity
 import com.example.ai_poweredquizapp.databinding.FragmentProfileBinding
@@ -65,6 +66,16 @@ class ProfileFragment : Fragment() {
             val intent = Intent(mContext, ProfileEditActivity::class.java)
             startActivity(intent)
         }
+
+        binding.changePasswordCv.setOnClickListener {
+            val intent = Intent(mContext, ChangePasswordActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.postAdBtn.setOnClickListener {
+            startActivity(Intent(mContext, MainActivity::class.java))
+        }
+
     }
 
     private fun loadMyInfo() {
