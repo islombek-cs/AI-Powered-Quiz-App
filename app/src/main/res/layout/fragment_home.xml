@@ -1,14 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.HomeFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Welcome to Home Page" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <RelativeLayout
+            android:id="@+id/toolbarRL"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="@drawable/toolbar_bg_02">
+
+            <!-- Profile Image -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profileIv"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginVertical="10dp"
+                android:background="?attr/colorOnPrimary"
+                android:scaleType="centerCrop"
+                android:src="@drawable/person_black_profile"
+                app:shapeAppearanceOverlay="@style/ImageStyle_Circle" />
+
+            <!-- Login Text -->
+            <TextView
+                android:id="@+id/fullNameTv"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@tools:sample/full_names"
+                android:textSize="20sp"
+                android:layout_below="@id/profileIv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-7dp"
+                android:textColor="?attr/colorOnPrimary" />
+
+        </RelativeLayout>
+
+        <!-- Cards Section -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardProfessor"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="12dp"
+            android:elevation="4dp"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/professorImg"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/professor1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="1dp"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:id="@+id/professorTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="For Professors"
+                    android:paddingStart="30dp"
+                    android:textSize="22sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardStudent"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="12dp"
+            android:elevation="4dp"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/studentImg"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/student"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="1dp"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:id="@+id/studentTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="For Students"
+                    android:paddingStart="30dp"
+                    android:textSize="22sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="12dp"
+            android:elevation="4dp"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/gamerImg"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/gamer1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="1dp"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:id="@+id/gamerTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="For Players"
+                    android:paddingStart="30dp"
+                    android:textSize="22sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+</ScrollView>

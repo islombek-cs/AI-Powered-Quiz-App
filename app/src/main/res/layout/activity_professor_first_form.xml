@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ProfessorFirstFormActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@drawable/toolbar_bg_02">
+
+        <ImageButton
+            android:id="@+id/toolbarBackBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_white"
+            android:background="@android:color/transparent"
+            android:padding="15dp"
+            android:layout_marginVertical="60dp"
+            app:tint="?attr/colorOnPrimary" />
+
+        <TextView
+            android:id="@+id/toolbarProfessorTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/professor"
+            android:textColor="?attr/colorOnPrimary"
+            android:layout_marginTop="48dp"
+            android:textSize="20sp"
+            android:layout_below="@id/profileIv"
+            android:textAlignment="center"
+            android:paddingHorizontal="70dp"/>
+
+        <!--TextView: Just to show a labeled/instructions text-->
+        <TextView
+            android:id="@+id/toolbarDescriptionTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/step_1_fill_in_course_info_before_uploading_materials"
+            android:textColor="?attr/colorOnPrimary"
+            android:layout_marginTop="85dp"
+            android:textSize="17sp"
+            android:layout_below="@id/profileIv"
+            android:textAlignment="center"
+            android:paddingHorizontal="70dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarRL"
+        android:padding="15dp">
+
+        <!--TextInputLayout: Input current password-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/subjectCodeTil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Module Code"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            android:layout_marginTop="20dp"
+            app:startIconDrawable="@drawable/subject_id">
+
+            <EditText
+                android:id="@+id/subjectIdEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="50dp"
+                android:inputType="text"
+                tools:ignore="RtlSymmetry" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--TextInputLayout: Input New password-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/subjectNameTil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Module Name"
+            android:layout_below="@id/subjectCodeTil"
+            android:layout_marginTop="4dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:startIconDrawable="@drawable/subject_name">
+
+            <EditText
+                android:id="@+id/subjectNameEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="50dp"
+                android:inputType="text"
+                tools:ignore="RtlSymmetry" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/quantityQuizTil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="How many quizzes?"
+            android:layout_below="@id/subjectNameTil"
+            android:layout_marginTop="4dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:startIconDrawable="@drawable/quiz_quantity">
+
+            <EditText
+                android:id="@+id/quantityQuizEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="50dp"
+                android:inputType="number"
+                tools:ignore="RtlSymmetry" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/numberQuizTil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Total Students"
+            android:layout_below="@id/quantityQuizTil"
+            android:layout_marginTop="4dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:startIconDrawable="@drawable/student_number">
+
+            <EditText
+                android:id="@+id/numberStudentEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="50dp"
+                android:inputType="number"
+                tools:ignore="RtlSymmetry" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--MaterialButton: Click to change password-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/continueFirstBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/m_button_height"
+            android:text="Continue to upload materials"
+            android:layout_below="@id/numberQuizTil"
+            android:layout_marginTop="285dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
