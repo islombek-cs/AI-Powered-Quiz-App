@@ -154,6 +154,11 @@
             android:layout_height="wrap_content"
             android:minHeight="@dimen/m_button_height"
             android:text="Continue to upload materials"
+            android:textSize="17sp"
+            app:icon="@drawable/next_arrow_white"
+            app:iconGravity="textEnd"
+            app:iconPadding="10dp"
+            app:iconSize="30dp"
             android:layout_below="@id/numberQuizTil"
             android:layout_marginTop="260dp"/>
 

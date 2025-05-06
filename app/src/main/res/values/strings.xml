@@ -21,7 +21,7 @@
     <string name="confirm_code">Confirm Code</string>
     <string name="continue_with_phone_number">Continue with Phone Number</string>
     <string name="forgot_password_recover">Forgot Password? <b>Recover</b></string>
-    <string name="reset_password">Reset Password</string>
+    <string name="reset_password"><b>Reset Password</b></string>
     <string name="write_your_email">Write your email</string>
     <string name="request_password_reset">Request Password Reset</string>
     <string name="preferences">Preferences</string>
@@ -29,6 +29,6 @@
     <string name="fill_in_the_form_to_get_your_personalized_quizzes">Fill in the form to get your personalized quizzes</string>
     <string name="course_code_e_g_cs101">Course Code (e.g., CS101)</string>
     <string name="professor"><b>Add course details</b></string>
-    <string name="student"><b>Student</b></string>
+    <string name="student"><b>Quiz Access Details</b></string>
     <string name="upload_materials"><b>Upload Materials</b></string>
 </resources>

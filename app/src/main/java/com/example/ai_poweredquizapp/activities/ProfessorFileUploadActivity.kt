@@ -6,7 +6,11 @@ import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
+import android.view.ViewGroup
 import android.webkit.MimeTypeMap
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ai_poweredquizapp.databinding.ActivityProfessorFileUploadBinding
@@ -27,10 +31,30 @@ class ProfessorFileUploadActivity : AppCompatActivity() {
             pickFile()
         }
 
+        binding.viewResultsBtn.isEnabled = false
+        binding.viewResultsBtn.alpha = 0.5f
+
         binding.toolbarBackBtn.setOnClickListener {
             finish()
         }
 
+        binding.viewResultsBtn.setOnClickListener {
+            val intent = Intent(this, ProfessorQuizGenerationActivity::class.java)
+            intent.putStringArrayListExtra("uploadedFiles", ArrayList(uploadedFileNames))
+            startActivity(intent)
+        }
+
+    }
+
+    private fun updateSelectedFileText() {
+        val fileCount = uploadedFileNames.size
+        binding.selectedFileTv.text = when (fileCount) {
+            0 -> "No file selected"
+            1 -> "1 file selected"
+            else -> "$fileCount files selected"
+        }
+        binding.viewResultsBtn.isEnabled = fileCount > 0
+        binding.viewResultsBtn.alpha = if (fileCount > 0) 1f else 0.5f
     }
 
     fun Cursor.getColumnIndexOpenableColumnsDisplayName(): Int {
@@ -65,32 +89,66 @@ class ProfessorFileUploadActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    @Deprecated("Deprecated - consider ActivityResultContract for future updates.")
+    @Deprecated("...")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == FILE_PICK_CODE && resultCode == Activity.RESULT_OK) {
             val clipData = data?.clipData
-
             if (clipData != null) {
-                val selectedNames = mutableListOf<String>()
                 for (i in 0 until clipData.itemCount) {
                     val uri = clipData.getItemAt(i).uri
-                    val name = getFileNameFromUri(uri)
-                    selectedNames.add(name)
+                    addFileIfNotExists(uri)
                 }
-                val result = selectedNames.joinToString("\n")
-                binding.selectedFileTv.text = result
-                Toast.makeText(this, "Files Selected:\n$result", Toast.LENGTH_SHORT).show()
-
             } else {
                 data?.data?.let { uri ->
-                    val fileName = getFileNameFromUri(uri)
-                    binding.selectedFileTv.text = fileName
-                    Toast.makeText(this, "File Selected: $fileName", Toast.LENGTH_SHORT).show()
+                    addFileIfNotExists(uri)
                 }
             }
         }
+    }
+
+    private fun addFileIfNotExists(uri: Uri) {
+        val fileName = getFileNameFromUri(uri)
+        if (!uploadedFileNames.contains(fileName)) {
+            uploadedFileNames.add(fileName)
+            addFileToView(fileName)
+            updateSelectedFileText() // 🔁 update text after adding
+        }
+    }
+
+    private fun addFileToView(fileName: String) {
+        val trimmedName = if (fileName.length > 35) fileName.substring(0, 35) + "..." else fileName
+
+        val horizontalLayout = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            setPadding(90, 10, 30, 10)
+        }
+
+        val fileTextView = TextView(this).apply {
+            text = trimmedName
+            textSize = 15f
+            setTextColor(resources.getColor(android.R.color.darker_gray))
+            layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
+        }
+
+        val removeBtn = ImageButton(this).apply {
+            setImageResource(android.R.drawable.ic_delete)
+            setBackgroundColor(android.graphics.Color.TRANSPARENT)
+            setPadding(8, 8, 48, 28)
+            layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            setOnClickListener {
+                binding.fileListLayout.removeView(horizontalLayout)
+                uploadedFileNames.remove(fileName)
+                updateSelectedFileText() // 🔁 update count after removing
+            }
+        }
+
+        horizontalLayout.addView(fileTextView)
+        horizontalLayout.addView(removeBtn)
+
+        binding.fileListLayout.addView(horizontalLayout)
     }
 
 }

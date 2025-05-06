@@ -198,8 +198,12 @@
             android:layout_height="wrap_content"
             android:minHeight="@dimen/m_button_height"
             android:text="Save Your Changes"
+            android:textSize="17sp"
+            android:paddingVertical="20dp"
+            app:iconSize="23dp"
+            app:cornerRadius="30dp"
             android:layout_below="@id/phoneInputRl"
-            android:layout_marginTop="260dp"
+            android:layout_marginTop="263dp"
             app:icon="@drawable/person_gray" />
 
     </RelativeLayout>
