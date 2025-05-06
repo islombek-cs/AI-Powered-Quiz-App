@@ -2,6 +2,7 @@ package com.example.ai_poweredquizapp.activities
 
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -29,5 +30,11 @@ class ProfessorFirstFormActivity : AppCompatActivity() {
         binding.toolbarBackBtn.setOnClickListener {
             finish()
         }
+
+        binding.continueFirstBtn.setOnClickListener {
+            val intent = Intent(this, ProfessorFileUploadActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

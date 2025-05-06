@@ -25,9 +25,10 @@
     <string name="write_your_email">Write your email</string>
     <string name="request_password_reset">Request Password Reset</string>
     <string name="preferences">Preferences</string>
-    <string name="step_1_fill_in_course_info_before_uploading_materials"><b>Step 1:</b> Fill in course info before uploading materials</string>
+    <string name="step_1_fill_in_course_info_before_uploading_materials">Fill in course info before uploading materials.</string>
     <string name="fill_in_the_form_to_get_your_personalized_quizzes">Fill in the form to get your personalized quizzes</string>
     <string name="course_code_e_g_cs101">Course Code (e.g., CS101)</string>
-    <string name="professor"><b>Professor</b></string>
+    <string name="professor"><b>Add course details</b></string>
     <string name="student"><b>Student</b></string>
+    <string name="upload_materials"><b>Upload Materials</b></string>
 </resources>

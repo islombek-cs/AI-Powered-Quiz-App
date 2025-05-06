@@ -10,7 +10,7 @@
     <RelativeLayout
         android:id="@+id/toolbarRL"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="188dp"
         android:background="@drawable/toolbar_bg_02">
 
         <ImageButton
@@ -20,7 +20,7 @@
             android:src="@drawable/back_white"
             android:background="@android:color/transparent"
             android:padding="15dp"
-            android:layout_marginVertical="60dp"
+            android:layout_marginVertical="45dp"
             app:tint="?attr/colorOnPrimary" />
 
         <TextView
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="@string/professor"
             android:textColor="?attr/colorOnPrimary"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="58dp"
             android:textSize="20sp"
             android:layout_below="@id/profileIv"
             android:textAlignment="center"
@@ -42,11 +42,12 @@
             android:layout_height="wrap_content"
             android:text="@string/step_1_fill_in_course_info_before_uploading_materials"
             android:textColor="?attr/colorOnPrimary"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="105dp"
             android:textSize="17sp"
             android:layout_below="@id/profileIv"
             android:textAlignment="center"
-            android:paddingHorizontal="70dp"/>
+            android:paddingHorizontal="65dp"
+            tools:ignore="NotSibling" />
 
     </RelativeLayout>
 
@@ -154,7 +155,7 @@
             android:minHeight="@dimen/m_button_height"
             android:text="Continue to upload materials"
             android:layout_below="@id/numberQuizTil"
-            android:layout_marginTop="285dp"/>
+            android:layout_marginTop="260dp"/>
 
     </RelativeLayout>
 
