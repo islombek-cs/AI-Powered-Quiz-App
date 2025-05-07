@@ -14,6 +14,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ai_poweredquizapp.databinding.ActivityProfessorFileUploadBinding
+import android.os.Handler
+import android.os.Looper
+import android.view.View
 
 class ProfessorFileUploadActivity : AppCompatActivity() {
 
@@ -39,9 +42,15 @@ class ProfessorFileUploadActivity : AppCompatActivity() {
         }
 
         binding.viewResultsBtn.setOnClickListener {
-            val intent = Intent(this, ProfessorQuizGenerationActivity::class.java)
-            intent.putStringArrayListExtra("uploadedFiles", ArrayList(uploadedFileNames))
-            startActivity(intent)
+            // Show overlay
+            binding.loadingOverlay.visibility = View.VISIBLE
+
+            Handler(Looper.getMainLooper()).postDelayed({
+                binding.loadingOverlay.visibility = View.GONE
+                val intent = Intent(this, ProfessorQuizGenerationActivity::class.java)
+                intent.putStringArrayListExtra("uploadedFiles", ArrayList(uploadedFileNames))
+                startActivity(intent)
+            }, 6000) // 3 seconds
         }
 
     }
