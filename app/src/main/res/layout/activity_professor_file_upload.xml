@@ -126,21 +126,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <FrameLayout
-        android:id="@+id/loadingOverlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="#CC000000"
-        android:visibility="gone"
-        android:gravity="center">
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            style="?android:attr/progressBarStyleLarge" />
-    </FrameLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ai_poweredquizapp.R
@@ -26,21 +25,25 @@ class ProfessorFileUploadActivity : AppCompatActivity() {
     private val FILE_PICK_CODE = 1001
     private val uploadedFileNames = mutableListOf<String>()
 
+    private var loadingDialog: AlertDialog? = null  // ✅ Make dialog a class-level variable
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfessorFileUploadBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.uploadFileBtn.setOnClickListener { pickFile() }
+
         binding.viewResultsBtn.isEnabled = false
         binding.viewResultsBtn.alpha = 0.5f
 
         binding.toolbarBackBtn.setOnClickListener { finish() }
 
         binding.viewResultsBtn.setOnClickListener {
-            val dialog = showLoadingDialog()
+            loadingDialog = showLoadingDialog()
+
             Handler(Looper.getMainLooper()).postDelayed({
-                dialog.dismiss()
+                loadingDialog?.dismiss()
                 val intent = Intent(this, ProfessorQuizGenerationActivity::class.java)
                 intent.putStringArrayListExtra("uploadedFiles", ArrayList(uploadedFileNames))
                 startActivity(intent)
@@ -48,6 +51,7 @@ class ProfessorFileUploadActivity : AppCompatActivity() {
         }
     }
 
+    // ✅ SINGLE definition of showLoadingDialog
     private fun showLoadingDialog(): AlertDialog {
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_loading, null)
         val loadingText = dialogView.findViewById<TextView>(R.id.loadingMessageTv)
@@ -150,7 +154,10 @@ class ProfessorFileUploadActivity : AppCompatActivity() {
 
         val horizontalLayout = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
-            layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
             setPadding(90, 10, 30, 10)
         }
 
@@ -165,7 +172,10 @@ class ProfessorFileUploadActivity : AppCompatActivity() {
             setImageResource(android.R.drawable.ic_delete)
             setBackgroundColor(android.graphics.Color.TRANSPARENT)
             setPadding(8, 8, 48, 28)
-            layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
             setOnClickListener {
                 binding.fileListLayout.removeView(horizontalLayout)
                 uploadedFileNames.remove(fileName)
