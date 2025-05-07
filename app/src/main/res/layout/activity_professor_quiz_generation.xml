@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,4 +8,291 @@
     android:layout_height="match_parent"
     tools:context=".activities.ProfessorQuizGenerationActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Scrollable content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/finalShareBtn">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Toolbar -->
+            <RelativeLayout
+                android:id="@+id/toolbarRL"
+                android:layout_width="match_parent"
+                android:layout_height="189dp"
+                android:background="@drawable/toolbar_bg_02">
+
+                <ImageButton
+                    android:id="@+id/toolbarBackBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back_white"
+                    android:background="@android:color/transparent"
+                    android:padding="15dp"
+                    android:layout_marginVertical="44dp"
+                    app:tint="?attr/colorOnPrimary" />
+
+                <TextView
+                    android:id="@+id/toolbarProfessorTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Student Quizzes"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:layout_marginTop="58dp"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:paddingHorizontal="70dp"/>
+
+                <TextView
+                    android:id="@+id/toolbarDescriptionTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Browse quiz results and insights for each listed student below."
+                    android:textColor="?attr/colorOnPrimary"
+                    android:layout_marginTop="103dp"
+                    android:textSize="17sp"
+                    android:textAlignment="center"
+                    android:paddingHorizontal="40dp" />
+            </RelativeLayout>
+
+            <!-- Student Cards (repeat for each student) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- User1 Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@android:color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/card_border_background"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/user1_avatar"
+                                android:scaleType="centerCrop"
+                                android:layout_marginEnd="16dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/student1NameTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Islombek Abdurakhmonov"
+                                    android:textSize="19sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black" />
+
+                                <TextView
+                                    android:id="@+id/student1InfoTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ID: 221236,  Group: CS-02-22"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/viewStudent1QuizBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="View Student Quiz"
+                            android:textSize="14sp"
+                            android:layout_marginTop="8dp"
+                            app:cornerRadius="24dp"
+                            app:icon="@drawable/next_arrow_white"
+                            app:iconGravity="textEnd"
+                            app:iconPadding="10dp"
+                            app:iconSize="20dp"
+                            app:backgroundTint="@color/colorPreference" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- User2 Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@android:color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/card_border_background"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/user2_avatar"
+                                android:scaleType="centerCrop"
+                                android:layout_marginEnd="16dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/student2NameTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Ikromjon Sharipov"
+                                    android:textSize="19sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black" />
+
+                                <TextView
+                                    android:id="@+id/student2InfoTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ID: 220448,  Group: CS-02-22"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/viewStudent2QuizBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="View Student Quiz"
+                            android:textSize="14sp"
+                            android:layout_marginTop="8dp"
+                            app:cornerRadius="24dp"
+                            app:icon="@drawable/next_arrow_white"
+                            app:iconGravity="textEnd"
+                            app:iconPadding="10dp"
+                            app:iconSize="20dp"
+                            app:backgroundTint="@color/colorPreference" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- User3 Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@android:color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/card_border_background"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/user3_avatar"
+                                android:scaleType="centerCrop"
+                                android:layout_marginEnd="16dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/student3NameTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Fayzulloh Asatullayev"
+                                    android:textSize="19sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black" />
+
+                                <TextView
+                                    android:id="@+id/student3InfoTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ID: 221405,  Group: CS-02-22"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/viewStudent3QuizBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="View Student Quiz"
+                            android:textSize="14sp"
+                            android:layout_marginTop="8dp"
+                            app:cornerRadius="24dp"
+                            app:icon="@drawable/next_arrow_white"
+                            app:iconGravity="textEnd"
+                            app:iconPadding="10dp"
+                            app:iconSize="20dp"
+                            app:backgroundTint="@color/colorPreference" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom fixed button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/finalShareBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Share Quiz Now"
+        android:textSize="17sp"
+        android:paddingVertical="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="65dp"
+        app:cornerRadius="30dp"
+        app:backgroundTint="@color/colorPrimary"/>
+</RelativeLayout>

@@ -6,16 +6,21 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.ai_poweredquizapp.R
+import com.example.ai_poweredquizapp.databinding.ActivityProfessorFirstFormBinding
+import com.example.ai_poweredquizapp.databinding.ActivityProfessorQuizGenerationBinding
 
 class ProfessorQuizGenerationActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityProfessorQuizGenerationBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_professor_quiz_generation)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        binding = ActivityProfessorQuizGenerationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Back button action
+        binding.toolbarBackBtn.setOnClickListener { finish() }
+
     }
 }
