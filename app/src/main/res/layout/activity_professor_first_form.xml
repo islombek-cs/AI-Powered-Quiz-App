@@ -68,6 +68,9 @@
             app:boxCornerRadiusBottomStart="8dp"
             app:boxCornerRadiusBottomEnd="8dp"
             android:layout_marginTop="20dp"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="custom"
+            app:endIconTint="@null"
             app:startIconDrawable="@drawable/subject_id">
 
             <EditText
@@ -91,6 +94,9 @@
             app:boxCornerRadiusTopEnd="8dp"
             app:boxCornerRadiusBottomStart="8dp"
             app:boxCornerRadiusBottomEnd="8dp"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="custom"
+            app:endIconTint="@null"
             app:startIconDrawable="@drawable/subject_name">
 
             <EditText
@@ -113,6 +119,9 @@
             app:boxCornerRadiusTopEnd="8dp"
             app:boxCornerRadiusBottomStart="8dp"
             app:boxCornerRadiusBottomEnd="8dp"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="custom"
+            app:endIconTint="@null"
             app:startIconDrawable="@drawable/quiz_quantity">
 
             <EditText
@@ -135,6 +144,9 @@
             app:boxCornerRadiusTopEnd="8dp"
             app:boxCornerRadiusBottomStart="8dp"
             app:boxCornerRadiusBottomEnd="8dp"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="custom"
+            app:endIconTint="@null"
             app:startIconDrawable="@drawable/student_number">
 
             <EditText
