@@ -1,5 +1,6 @@
 package com.example.ai_poweredquizapp.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,11 @@ class ProfessorQuizGenerationActivity : AppCompatActivity() {
 
         // Back button action
         binding.toolbarBackBtn.setOnClickListener { finish() }
+
+        binding.viewStudent1QuizBtn.setOnClickListener {
+            val intent = Intent(this, ProfessorQuizItemActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }
