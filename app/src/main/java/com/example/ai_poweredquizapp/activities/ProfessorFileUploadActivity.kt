@@ -2,27 +2,28 @@ package com.example.ai_poweredquizapp.activities
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
-import android.view.ViewGroup
-import android.webkit.MimeTypeMap
-import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.example.ai_poweredquizapp.databinding.ActivityProfessorFileUploadBinding
 import android.os.Handler
 import android.os.Looper
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.example.ai_poweredquizapp.R
+import com.example.ai_poweredquizapp.databinding.ActivityProfessorFileUploadBinding
 
 class ProfessorFileUploadActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityProfessorFileUploadBinding
     private val FILE_PICK_CODE = 1001
-    private var selectedFileName: String = "No file selected"
     private val uploadedFileNames = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,29 +31,47 @@ class ProfessorFileUploadActivity : AppCompatActivity() {
         binding = ActivityProfessorFileUploadBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.uploadFileBtn.setOnClickListener {
-            pickFile()
-        }
-
+        binding.uploadFileBtn.setOnClickListener { pickFile() }
         binding.viewResultsBtn.isEnabled = false
         binding.viewResultsBtn.alpha = 0.5f
 
-        binding.toolbarBackBtn.setOnClickListener {
-            finish()
-        }
+        binding.toolbarBackBtn.setOnClickListener { finish() }
 
         binding.viewResultsBtn.setOnClickListener {
-            // Show overlay
-            binding.loadingOverlay.visibility = View.VISIBLE
-
+            val dialog = showLoadingDialog()
             Handler(Looper.getMainLooper()).postDelayed({
-                binding.loadingOverlay.visibility = View.GONE
+                dialog.dismiss()
                 val intent = Intent(this, ProfessorQuizGenerationActivity::class.java)
                 intent.putStringArrayListExtra("uploadedFiles", ArrayList(uploadedFileNames))
                 startActivity(intent)
-            }, 6000) // 3 seconds
+            }, 6000)
         }
+    }
 
+    private fun showLoadingDialog(): AlertDialog {
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_loading, null)
+        val loadingText = dialogView.findViewById<TextView>(R.id.loadingMessageTv)
+        val messages = listOf("Analyzing files...", "Generating quizzes...", "Finalizing content...")
+        val handler = Handler(Looper.getMainLooper())
+        var index = 0
+
+        val messageUpdater = object : Runnable {
+            override fun run() {
+                loadingText.text = messages[index % messages.size]
+                index++
+                handler.postDelayed(this, 2000)
+            }
+        }
+        handler.post(messageUpdater)
+
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setCancelable(false)
+            .create()
+
+        dialog.setOnDismissListener { handler.removeCallbacks(messageUpdater) }
+        dialog.show()
+        return dialog
     }
 
     private fun updateSelectedFileText() {
@@ -79,7 +98,7 @@ class ProfessorFileUploadActivity : AppCompatActivity() {
             "application/vnd.openxmlformats-officedocument.presentationml.presentation"
         )
         intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true) // ✅ Allow multiple files
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         startActivityForResult(Intent.createChooser(intent, "Select files"), FILE_PICK_CODE)
     }
 
@@ -122,7 +141,7 @@ class ProfessorFileUploadActivity : AppCompatActivity() {
         if (!uploadedFileNames.contains(fileName)) {
             uploadedFileNames.add(fileName)
             addFileToView(fileName)
-            updateSelectedFileText() // 🔁 update text after adding
+            updateSelectedFileText()
         }
     }
 
@@ -150,7 +169,7 @@ class ProfessorFileUploadActivity : AppCompatActivity() {
             setOnClickListener {
                 binding.fileListLayout.removeView(horizontalLayout)
                 uploadedFileNames.remove(fileName)
-                updateSelectedFileText() // 🔁 update count after removing
+                updateSelectedFileText()
             }
         }
 
@@ -159,5 +178,4 @@ class ProfessorFileUploadActivity : AppCompatActivity() {
 
         binding.fileListLayout.addView(horizontalLayout)
     }
-
 }
