@@ -16,6 +16,9 @@
         android:theme="@style/Theme.AIPoweredQuizApp"
         tools:targetApi="31">
         <activity
+            android:name=".activities.StudentQuizListActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.ProfessorQuizItemActivity"
             android:exported="false" />
         <activity

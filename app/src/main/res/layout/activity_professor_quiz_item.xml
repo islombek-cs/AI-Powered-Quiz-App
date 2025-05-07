@@ -74,7 +74,196 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- You will dynamically inflate or add questions here -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Question Title -->
+                    <TextView
+                        android:id="@+id/questionTitleTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1. What is the purpose of setContentView() in an Android Activity written in Kotlin?"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Option A (Wrong) -->
+                    <TextView
+                        android:id="@+id/optionATv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="A) It starts the app"
+                        android:textSize="16sp"
+                        android:backgroundTint="#FFEBEE"
+                        android:textColor="#C62828"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/option_correct_bg" />
+
+                    <!-- Option B (Correct) -->
+                    <TextView
+                        android:id="@+id/optionBTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="B) It inflates the activity's layout and displays it on the screen"
+                        android:textSize="16sp"
+                        android:backgroundTint="#E8F5E9"
+                        android:textColor="#2E7D32"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/option_correct_bg"/>
+
+                    <!-- Option C (Wrong) -->
+                    <TextView
+                        android:id="@+id/optionCTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="C) It initializes variables"
+                        android:textSize="16sp"
+                        android:backgroundTint="#FFEBEE"
+                        android:textColor="#C62828"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/option_correct_bg"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Question Title -->
+                    <TextView
+                        android:id="@+id/question2TitleTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2. Which method is called first when an Android Activity is created??"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        android:id="@+id/option2ATv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="A) onStart()"
+                        android:textSize="16sp"
+                        android:backgroundTint="#FFEBEE"
+                        android:textColor="#C62828"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/option_correct_bg" />
+
+                    <TextView
+                        android:id="@+id/option2CTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="B) onResume()"
+                        android:textSize="16sp"
+                        android:backgroundTint="#FFEBEE"
+                        android:textColor="#C62828"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/option_correct_bg"/>
+
+                    <TextView
+                        android:id="@+id/option2BTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="C) onCreate()"
+                        android:textSize="16sp"
+                        android:backgroundTint="#E8F5E9"
+                        android:textColor="#2E7D32"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/option_correct_bg"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Question Title -->
+                    <TextView
+                        android:id="@+id/question3TitleTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3. What is the file extension for a layout file in Android??"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        android:id="@+id/option3BTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="A) .xml"
+                        android:textSize="16sp"
+                        android:backgroundTint="#E8F5E9"
+                        android:textColor="#2E7D32"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/option_correct_bg"/>
+
+                    <TextView
+                        android:id="@+id/option3ATv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="B) .kt"
+                        android:textSize="16sp"
+                        android:backgroundTint="#FFEBEE"
+                        android:textColor="#C62828"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/option_correct_bg" />
+
+                    <TextView
+                        android:id="@+id/option3CTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="C) .java"
+                        android:textSize="16sp"
+                        android:backgroundTint="#FFEBEE"
+                        android:textColor="#C62828"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/option_correct_bg"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
