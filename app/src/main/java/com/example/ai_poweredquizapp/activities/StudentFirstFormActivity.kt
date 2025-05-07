@@ -2,6 +2,7 @@ package com.example.ai_poweredquizapp.activities
 
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
@@ -31,6 +32,11 @@ class StudentFirstFormActivity : AppCompatActivity() {
 
         binding.toolbarBackBtn.setOnClickListener {
             finish()
+        }
+
+        binding.continueFirstBtn.setOnClickListener {
+            val intent = Intent(this, StudentQuizListActivity::class.java)
+            startActivity(intent)
         }
 
         val levels = arrayOf("Freshman", "Sophomore", "Juniors", "Seniors")

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,4 +8,264 @@
     android:layout_height="match_parent"
     tools:context=".activities.StudentQuizListActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Sticky Toolbar (Student Info) -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="145dp"
+            android:background="@drawable/toolbar_bg_02"
+            android:padding="12dp">
+
+            <!-- Student name -->
+            <TextView
+                android:id="@+id/toolbarProfessorTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Islombek Abdurakhmonov"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:layout_marginTop="16dp" />
+
+            <!-- Student ID and group -->
+            <TextView
+                android:id="@+id/toolbarDescriptionTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ID: 221236, Group: CS-02-22"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textAlignment="center"
+                android:layout_below="@id/toolbarProfessorTv"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:id="@+id/timerLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/toolbarDescriptionTv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_timer"
+                    android:layout_marginEnd="6dp"
+                    app:tint="@color/colorPreference" />
+
+                <TextView
+                    android:id="@+id/timerTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10:00"
+                    android:textColor="@color/colorPreference"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Scrollable quiz content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/quizScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:padding="16dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:id="@+id/questionContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Quiz Question Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Question Title -->
+                    <TextView
+                        android:id="@+id/question1TitleTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1. What is the purpose of setContentView() in an Android Activity written in Kotlin?"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Option Group -->
+                    <RadioGroup
+                        android:id="@+id/option1Group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/option1A"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="A) It starts the app"
+                            android:padding="12dp" />
+
+                        <RadioButton
+                            android:id="@+id/option1B"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="B) It inflates the activity's layout and displays it on the screen"
+                            android:padding="12dp" />
+
+                        <RadioButton
+                            android:id="@+id/option1C"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="C) It initializes variables"
+                            android:padding="12dp" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Question Title -->
+                    <TextView
+                        android:id="@+id/question2TitleTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2. Which method is called first when an Android Activity is created?"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Option Group -->
+                    <RadioGroup
+                        android:id="@+id/option2Group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/option2A"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="A) onStart()"
+                            android:padding="12dp" />
+
+                        <RadioButton
+                            android:id="@+id/option2B"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="B) onResume()"
+                            android:padding="12dp" />
+
+                        <RadioButton
+                            android:id="@+id/option2C"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="C) onCreate()"
+                            android:padding="12dp" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Question Title -->
+                    <TextView
+                        android:id="@+id/question3TitleTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3. What is the file extension for a layout file in Android?"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Option Group -->
+                    <RadioGroup
+                        android:id="@+id/option3Group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/option3A"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="A) .xml"
+                            android:padding="12dp" />
+
+                        <RadioButton
+                            android:id="@+id/option3B"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="B) .kt"
+                            android:padding="12dp" />
+
+                        <RadioButton
+                            android:id="@+id/option3C"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="C) .java"
+                            android:padding="12dp" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Submit button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submitQuizBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Complete Your Quiz"
+                android:textSize="17sp"
+                android:paddingVertical="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="65dp"
+                app:cornerRadius="30dp"
+                app:backgroundTint="@color/colorPrimary"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
