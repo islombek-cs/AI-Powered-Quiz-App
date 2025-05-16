@@ -115,7 +115,7 @@ class LoginEmailActivity : AppCompatActivity() {
 
                 // Move to MainActivity
                 startActivity(Intent(this, MainActivity::class.java))
-                finishAffinity() // Close all previous activities
+                finishAffinity()
             }
             .addOnFailureListener { e ->
                 // User login failed
